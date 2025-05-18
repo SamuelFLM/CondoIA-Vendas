@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 270 50% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 270 50% 60%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 270 50% 60%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 270 50% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 270 50% 60%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 270 50% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Melhorias de responsividade */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Ajustes para telas pequenas */
+  @media (max-width: 640px) {
+    h1 {
+      @apply text-3xl;
+    }
+    h2 {
+      @apply text-2xl;
+    }
+    .container {
+      @apply px-4;
+    }
+  }
+}
+
+/* Adicione classes utilitárias personalizadas */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-700 to-purple-500 dark:from-purple-400 dark:to-purple-600;
+  }
+
+  /* Classe para o menu mobile */
+  .mobile-menu-open {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Melhorias de responsividade */
+  .responsive-container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .responsive-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Ajustes para telas muito pequenas */
+  @media (max-width: 360px) {
+    .xs-stack {
+      flex-direction: column !important;
+    }
+
+    .xs-full {
+      width: 100% !important;
+    }
+
+    .xs-text-sm {
+      font-size: 0.875rem !important;
+    }
+
+    .xs-p-2 {
+      padding: 0.5rem !important;
+    }
+  }
+}
+
+/* Estilo Apple */
+@layer components {
+  .apple-section {
+    @apply py-24 overflow-hidden;
+  }
+
+  .apple-heading {
+    @apply font-medium tracking-tight;
+  }
+
+  .apple-subheading {
+    @apply font-light text-gray-600 dark:text-gray-300 max-w-3xl mx-auto;
+  }
+
+  .apple-card {
+    @apply rounded-2xl bg-white/70 backdrop-blur-md shadow-xl border border-white/20 dark:bg-gray-900/70 dark:border-gray-800/30;
+  }
+
+  .apple-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-700 to-purple-500 dark:from-purple-400 dark:to-purple-600;
+  }
+}
